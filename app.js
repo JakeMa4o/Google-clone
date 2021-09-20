@@ -1,4 +1,6 @@
 require('dotenv').config();
+
+
 const express = require("express");
 const https = require("https");
 const app = express();
@@ -17,6 +19,7 @@ const defaultLink = "https://customsearch.googleapis.com/customsearch/v1?";
 
 app.get("/", (req, res) => {
   res.render("home");
+  console.log(process.env.searchId)
 })
 
 app.post("/", (req, res) => {
@@ -43,7 +46,7 @@ app.post("/", (req, res) => {
 app.post("/result", (req, res) => {
   const query = req.body.query;
 
-  const link = `${defaultLink}q=${query}&cx=${searchId}&key=${apiKey}`;
+  const link = `${defaultLink}q=${query}&cx=${process.env.searchId}&key=${process.env.API_KEY}`;
 
   if (query !== "") {
     https.get(link, (response) => {
