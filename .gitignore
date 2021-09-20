@@ -1,4 +1,6 @@
 config.js
+.DS_Store
+/*.env
 
 # Logs
 logs
