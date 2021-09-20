@@ -1,0 +1,297 @@
+header {
+  min-height: 6vh;
+  padding: 0 2rem;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+/* ==== */
+/* Nav */
+/* === */
+
+.nav {
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.icon {
+  text-align: center;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+.dropup .dropdown-toggle::after {
+  display: none;
+}
+
+#header-nav {
+  display: flex;
+  padding-top: 1.5rem;
+}
+
+#header-nav img {
+  height: 2rem;
+}
+
+.settings {
+  max-width: 2.5rem;
+  text-align: left;
+  padding: 1rem;
+}
+.settings a {
+  display: block;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: #000;
+}
+
+.dropdown-menu {
+  width: 20rem;
+}
+
+/* =========== */
+/* Google Main */
+/* =========== */
+
+#main {
+  min-height: 83.7vh;
+  display: grid;
+  place-items: center;
+}
+
+.google {
+  position: relative;
+  bottom: 5rem;
+}
+
+.search{
+  display: flex;
+  border: 1px solid rgb(177, 176, 176);
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  flex: 1;
+  position: relative;
+  margin-top: 1rem;
+  min-width: 90%;
+}
+
+.search-icon {
+  color: rgb(177, 176, 176);
+  position: relative;
+  top: 3px;
+}
+
+input {
+  border: none;
+  flex: 1;
+  outline: none;
+}
+
+.micro-icon {
+  color: rgb(177, 176, 176);
+  position: relative;
+  top: 4px;
+}
+
+.button-container {
+  display: none;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  background-color: #f8f9fa;
+  margin: 0 0.3rem;
+}
+
+/* =========== */
+/* Result Main */
+/* =========== */
+.first-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.result-search {
+  display: flex;
+  border: 1px solid rgb(177, 176, 176);
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  flex: 1;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.header-nav {
+  padding: 0 2rem;
+}
+
+#result {
+  min-height: 80%;
+  padding-bottom: 3rem;
+}
+
+.my-container {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+.search .result-form, .result-search .result-form {
+  flex: 1;
+}
+
+.result-nav {
+  width: 80%;
+  margin: auto;
+}
+
+.result-nav i {
+  display: none;
+}
+
+.result-nav .active {
+  color: blue;
+}
+a.active i {
+  color: red;
+  display: inline-block;
+  position: relative;
+}
+a.active i::before {
+  content: "";
+  width: 1.5rem;
+  height: 2px;
+  background-color: blue;
+  position: absolute;
+  top: 1.8rem;
+  left: 0;
+}
+
+.cta {
+  display: inline-block;
+  position: absolute;
+  right: 0.5rem;
+  border: none;
+  background-color: transparent;
+}
+
+.result-form {
+  display: flex;
+}
+
+.result-input {
+  flex: 1;
+}
+
+.result-content {
+  margin-bottom: 1rem;
+  height: auto;
+}
+
+.navbar-brand {
+  display: grid;
+  place-items: center;
+}
+
+/* ======= */
+/* Footer */
+/* ======= */
+
+footer {
+  padding: 1rem 0 0 1rem;
+  background-color: #dadce0;
+  min-height: 7.4vh;
+}
+
+.region {
+  border-bottom: 1px solid #dadce0;
+}
+
+/* ============= */
+/* Media Queries */
+/* ============= */
+
+@media screen and (min-width: 320px) {
+  .navbar-toggler-icon {
+    display: none;
+  }
+  .my-container {
+    width: 100%;
+    padding: 0 2rem;
+  }
+  .google {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 420px) {
+  .first-container {
+    padding: 0;
+    min-width: 100%;
+  }
+  .navbar-toggler-icon {
+    display: none;
+  }
+  .my-container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .google {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 672px) {
+  .search {
+    min-width: 50%;
+  }
+  .first-container {
+    flex-direction: row;
+  }
+  .my-container {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .button-container {
+    display: block;
+  }
+
+  .result-nav i {
+    color: rgb(146, 144, 144);
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .result-search {
+    max-width: 40%;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .my-container {
+    width: 40%;
+    margin-left: 9%;
+  }
+  .google {
+    width: 30%;
+  }
+}

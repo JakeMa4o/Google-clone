@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <!-- Custom css -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav id="header-nav" class="navbar navbar-expand-lg navbar-light">
+      <div class="first-container">
+        <a class="navbar-brand" href="/"><img style="display: inline-block;"
+            src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""></a>
+        <div class="result-search">
+          <form action="/result" method="POST" class="result-form">
+            <input type="text" name="query" class="result-input" value="<%= query %>">
+            <button type="submit" class="cta"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div style="padding-right: 1rem;" class="navbar-nav">
+            <li class="nav-item dropdown py-1">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">
+                <i class="fas fa-cog"></i>
+              </a>
+              <div class="dropdown-menu settings">
+                <a href="">Search settings</a>
+                <a href="">Language</a>
+                <a href="">Language</a>
+                <a href="">Language</a>
+                <a href="">Language</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown py-1">
+              <a class="nav-link" href="#">
+                <i class="fas fa-th"></i>
+              </a>
+            </li>
+            <li class="nav-item p-1">
+              <i class="nav-link fas fa-user"></i>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <nav id="second-nav">
+      <div class="result-nav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-search"></i>All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="far fa-image"></i>Images</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-video"></i>Videos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-map-marker-alt"></i>Maps</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+
+  <div id="result">
+    <hr stle="color: grey">
+    <div class="my-container">
+      <% if (content.items) { %>
+        <p class="search-info">About <%= Number(content.searchInformation.totalResults).toLocaleString() %> results (<%=
+              content.searchInformation.searchTime %> seconds)</p>
+        <% content.items.forEach(element=> { %>
+          <div class="result-content">
+            <p style="margin: 0">
+              <%= element.link %>"
+            </p>
+            <a href="<%= element.link %>">
+              <%= element.title %>
+            </a> <br>
+            <p>
+              <%= element.snippet %>
+            </p>
+          </div>
+          <% }); %>
+            <% } else {%>
+              <p>Your search - <%= content.queries.request.searchTerms%> - did not match any documents. <br>
+                  Suggestion: <br>
+                  <ul>
+                    <li>Make sure that all words are spelled correctly</li>
+                    <li>Try different keywords</li>
+                    <li>Try more general keywords</li>
+                  </ul>
+              </p>
+              <% } %>
+    </div>
+
+  </div>
+
+  <!-- Main -->
+
+  <footer>
+    <div class="region">
+      Kazakhstan
+    </div>
+
+    <div class="footer-links">
+      <ul class="nav col-lg-5 ">
+        <li class="nav-item py-1">
+          <a style="padding-left: 0;" class="nav-link" aria-current="page" href="#">Help</a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" aria-current="page" href="#">Send feedback</a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" aria-current="page" href="#">Privacy</a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" href="#">Terms</a>
+        </li>
+
+      </ul>
+    </div>
+  </footer>
+
+
+  <script type='text/javascript' src='config.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
