@@ -20,7 +20,6 @@ const defaultLink = "https://customsearch.googleapis.com/customsearch/v1?";
 
 app.get("/", (req, res) => {
   res.render("home");
-  console.log(searchId)
 })
 
 app.post("/", (req, res) => {
