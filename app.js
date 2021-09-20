@@ -1,6 +1,4 @@
-require('dotenv').config();
-
-
+// require('dotenv').config();
 const express = require("express");
 const https = require("https");
 const app = express();
@@ -13,20 +11,23 @@ app.use(express.static(__dirname + "/public"));
 
 
 // Custom - Search API
+const API_KEY = "AIzaSyAyOvW6_3wdcnaIFDdYGP6T8iISJc72Npw";
+const searchId = "55eda52d109482b84";
+
 const defaultLink = "https://customsearch.googleapis.com/customsearch/v1?";
 
 
 
 app.get("/", (req, res) => {
   res.render("home");
-  console.log(process.env.searchId)
+  console.log(searchId)
 })
 
 app.post("/", (req, res) => {
   
   const query = req.body.query;
 
-  const link = `${defaultLink}q=${query}&cx=${process.env.searchId}&key=${process.env.API_KEY}`;
+  const link = `${defaultLink}q=${query}&cx=${searchId}&key=${API_KEY}`;
   if (query === "") {
     res.redirect("/")
   } else {
@@ -46,7 +47,7 @@ app.post("/", (req, res) => {
 app.post("/result", (req, res) => {
   const query = req.body.query;
 
-  const link = `${defaultLink}q=${query}&cx=${process.env.searchId}&key=${process.env.API_KEY}`;
+  const link = `${defaultLink}q=${query}&cx=${searchId}&key=${API_KEY}`;
 
   if (query !== "") {
     https.get(link, (response) => {
