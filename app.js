@@ -6,13 +6,14 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
+require("dotenv").config();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 
 // Custom - Search API
-const API_KEY = "AIzaSyAyOvW6_3wdcnaIFDdYGP6T8iISJc72Npw";
-const searchId = "55eda52d109482b84";
+const API_KEY = process.env.API_KEY;
+const searchId = process.env.SEARCH_ID;
 
 const defaultLink = "https://customsearch.googleapis.com/customsearch/v1?";
 

@@ -1,14 +1,14 @@
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition((position) => {
 
-    const config = {
+    const settings = {
       endpoint: "https://maps.googleapis.com/maps/api/geocode/json?",
-      key: config.API_KEY,
+      key: "AIzaSyAyOvW6_3wdcnaIFDdYGP6T8iISJc72Npw",
       lat: position.coords.latitude,
       lng: position.coords.longitude
     }
 
-    fetch(`${config.endpoint}key=${config.key}&latlng=${config.lat},${config.lng}`)
+    fetch(`${settings.endpoint}key=${settings.key}&latlng=${settings.lat},${settings.lng}`)
     .then(response => response.json())
     .then(data => {
       const region = document.querySelector(".region");
